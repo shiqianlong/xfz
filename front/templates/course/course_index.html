@@ -1,0 +1,49 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+    视频 | 子午
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/course/course.min.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="course-nav">
+            <div class="nav-container">
+                <h3 class="title">在线课堂</h3>
+                <ul class="nav-list">
+                    <li class="active"><a href="javascript:void (0)">最新课堂</a></li>
+                    <li><a href="javascript:void (0)">学习</a></li>
+                    <li><a href="javascript:void (0)">生活</a></li>
+                    <li><a href="javascript:void (0)">娱乐</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <ul class="course-list">
+                {% for course in courses %}
+                    <li>
+                        <a href="{% url 'course:course_detail'  course_id=course.pk %}">
+                            <div class="thumbnail-group">
+                                <img src="{{ course.cover_url }}" alt="">
+                            </div>
+                            <div class="course-info">
+                                <p class="title">{{ course.title }}</p>
+                                <p class="author">{{ course.teacher.username }}</p>
+                                <p class="price-group">
+                                    <span class="free">免费</span>
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+
+
+                <li style="background: #F2F2F2;"></li>
+                <li style="background: #F2F2F2;"></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

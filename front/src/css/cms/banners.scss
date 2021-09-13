@@ -1,0 +1,36 @@
+
+.banner-group {
+  float: left;
+}
+
+.tips {
+  float: left;
+}
+
+.banner-item {
+  width: 800px;
+
+  .box-header {
+
+  }
+
+  .box-body {
+    .thumbnail-group {
+      width: 230px;
+      float: left;
+
+      img {
+        padding: 4px;
+        width: 100%;
+        height: 84px;
+        box-sizing: border-box;
+      }
+    }
+
+    .more-group {
+      float: left;
+      margin-left: 20px;
+      width: 500px;
+    }
+  }
+}

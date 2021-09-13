@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1980187_y17r6lhijc.css">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/xfzajax.min.js' %}"></script>
+    <script src="{% static 'js/message.min.js' %}"></script>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/common/auth.min.css' %}">
+    <script src="{% static 'js/front_base.min.js' %}"></script>
+    {% block header %}
+
+    {% endblock %}
+
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo-box">
+            <a href="/"></a>
+        </div>
+
+        <ul class="nav">
+            <li class="active"><a href="{% url 'index' %}">文章</a></li>
+            <li><a href="{% url 'course:course_index' %}" target="_blank">视频</a></li>
+{#            <li><a href="{% url 'more:more_index' %}">更多</a></li>#}
+            <li><a href="javascript:void (0)">更多</a></li>
+            <li><a href="{% url 'news:search' %}" target="_blank">搜索</a></li>
+        </ul>
+
+        <div class="auth-box">
+            <i class="icon-person_icon iconfont"></i>
+            {% if user.is_authenticated %}
+                <a href="" class="authenticated-box">{{ user.username }}</a>
+                <div class="user-more-box">
+                    <i class="triangle"></i>
+                    {% if user.is_staff %}
+                        <a href="{% url 'cms:index' %}">管理系统</a>
+                    {% endif %}
+                    <a href="{% url 'xfzauth:logout' %}">退出登录</a>
+                </div>
+
+            {% else %}
+                <a href="#" class="signin-btn">登录</a> /
+                <a href="#" class="signup-btn">注册</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+{% block main %}
+
+{% endblock %}
+
+<footer class="footer">
+    <div class="top-group">
+        <div class="top-inner-group">
+            <div class="logo-box">
+
+            </div>
+            <div class="detail-group">
+                <div class="line1">
+                    <ul class="links">
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="https://www.aliyun.com/">阿里云</a></li>
+                        <li><a href="https://www.baidu.com/" target="_blank">百度</a></li>
+                    </ul>
+                    <div class="about-us">
+                        <span class="title">关于我们：</span>
+                        <ul class="social-group">
+                            <li class="weixin">
+                                <div class="wx-qrcode"></div>
+                                <i class="icon-weixin iconfont"></i>
+                            </li>
+                            <li class="qq">
+                                <div class="qq-qrcode"></div>
+                                <i class="icon-qq-icon iconfont"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="line2">
+                    <p class="duty">
+                        免责声明：若本站收入的资源侵犯了您的权益，请联系本站及时删除其内容。
+                    </p>
+                </div>
+                <div class="line3">
+
+                    <div class="contact">
+                        <span class="contact-adder">联系方式</span>
+                        <i class="icon-mail_gaoliang iconfont">：</i>
+                        <span class="email">ziwu2022@gmail.com</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="bottom-group">
+        <p class="info">@2020 子午工作室 <a href="http://www.beian.miit.gov.cn/" style="color: #c9c9c9" target="_blank">鄂ICP备20011056号</a>
+        </p>
+    </div>
+</footer>
+
+
+<div class="mask-wrapper">
+    <div class="auth-wrapper">
+        <div class="close-wrapper">
+            <div class="close-btn">
+                <span class="icon-close iconfont"></span>
+            </div>
+        </div>
+        <div class="auth-inner-wrapper">
+            <div class="scroll-group">
+                <div class="signin-group auth-group">
+                    <div class="top-group">
+                        <span class="title">请登录</span>
+                        <a href="javascript: void(0);" class="switch">立即注册></a>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="请输入手机号码" name="telephone">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="请输入密码" name="password">
+                        </div>
+                        <div class="input-group">
+                            <label for="" class="remember-label">
+                                <input type="checkbox" value="1" name="remember">
+                                记住我
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <input type="submit" class="submit-btn" value="立即登录">
+                        </div>
+                    </div>
+                </div>
+                <div class="signup-group auth-group">
+                    <div class="top-group">
+                        <span class="title">请注册</span>
+                        <a href="javascript: void(0);" class="switch">立即登录></a>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="telephone" placeholder="请输入手机号码">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+                        </div>
+{#                        <div class="input-group">#}
+{#                            <div class="short-input-group">#}
+{#                                <input type="text" class="form-control" name="img_captcha" placeholder="图形验证码">#}
+{#                            </div>#}
+{#                            <div class="input-group-addon">#}
+{#                                <img src="{% url 'xfzauth:img_captcha' %}" alt="" class="img_captcha">#}
+{#                            </div>#}
+{#                        </div>#}
+                        <div class="input-group">
+                            <input type="password" class="form-control" name="password1" placeholder="密码">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="form-control" name="password2" placeholder="确认密码">
+                        </div>
+                        <div class="input-group">
+                            <div class="short-input-group">
+                                <input type="text" class="form-control" name="sms_captcha" placeholder="短信验证码">
+                            </div>
+                            <div class="input-group-addon">
+                                <span class="sms_captcha">发送验证码</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="submit" value="立即注册" class="submit-btn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

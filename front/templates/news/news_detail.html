@@ -1,0 +1,76 @@
+{% extends 'base/front_base.html' %}
+{% load news_filters %}
+
+{% block title %}
+    详情 | 子午工作室
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/news/news_detail.min.css' %}">
+    <script src="{% static 'js/news_detail.min.js' %}"></script>
+    <script src="{% static 'arttemplate/template-web.js' %}"></script>
+
+    <script type="text/html" id="comment-list">
+        {% verbatim %}
+        <li>
+            <div class="comment-info">
+                <img src="http://cdn.shiqianlong.top/ziwu.png" alt="" class="avatar">
+                <span class="author">{{ comment.user.username }}</span>
+                <span class="pub-time">{{ comment.pub_time|timeSince }}</span>
+            </div>
+            <p class="comment-content">{{ comment.content }}</p>
+        </li>
+        {% endverbatim %}
+    </script>
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="main-content-wrapper">
+                <div class="news-wrapper">
+                    <h1 class="title">{{ news.title }}</h1>
+                    <div class="news-info">
+                        <div class="info-group">
+                            <span class="author">{{ news.author.username }}</span>
+                            <span class="pub-time">{{ news.pub_time|time_since }}</span>
+                            <span class="category">{{ news.category.name }}</span>
+                        </div>
+                        <div class="share-group">
+                            <span>分享至：</span>
+                            <a href="" class="weixin"></a>
+                            <a href="" class="weibo"></a>
+                        </div>
+                    </div>
+
+                    <article class="article">
+                        {{ news.content|safe }}
+                    </article>
+                </div>
+                <div class="comment-wrapper">
+                    <h3 class="title">文章评论(0)</h3>
+                    <textarea data-news-id="{{ news.id }}" name="comment" class="comment-textarea"
+                              placeholder="欢迎评论~"></textarea>
+                    {#                    <textarea name="comment" class="comment-textarea" placeholder="立即登录，参与评论~" readonly></textarea>#}
+                    <div class="submit-btn-group">
+                        <button class="submit-btn">立即评论</button>
+                    </div>
+                    <ul class="comment-list">
+                        {% for comment in news.comments.all %}
+                            <li>
+                                <div class="comment-info">
+                                    <img src="http://cdn.shiqianlong.top/ziwu.png" alt="" class="avatar">
+                                    <span class="author">{{ comment.user.username }}</span>
+                                    <span class="pub-time">{{ comment.pub_time|time_since }}</span>
+                                </div>
+                                <p class="comment-content">{{ comment.content }}</p>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+            {% include 'common/sidebar.html' %}
+        </div>
+    </div>
+{% endblock %}

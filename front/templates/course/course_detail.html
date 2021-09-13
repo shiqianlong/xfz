@@ -1,0 +1,77 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+    视频详情 | 子午
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/course/course_detail.min.css' %}">
+    <script src="{% static 'videojs/video.min.js' %}"></script>
+    <script src="{% static 'videojs/videojs-contrib-hls.min.js' %}"></script>
+    <script src="{% static 'videojs/videojs-contrib-quality-levels.min.js' %}"></script>
+    <script type="text/javascript" src="https://cdn.bdstatic.com/jwplayer/latest/cyberplayer.js"></script>
+
+    <script src="{% static 'js/course_detail.min.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="course-nav">
+            <div class="nav-container">
+                <h3 class="title">在线课堂</h3>
+                <ul class="nav-list">
+                    <li class="active"><a href="">最新课堂</a></li>
+                    <li><a href="">学习</a></li>
+                    <li><a href="">生活</a></li>
+                    <li><a href="">娱乐</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="course-wrapper">
+                <div class="course-info">
+                    <p class="course-title">{{ course.title }}</p>
+                    <div class="price-group">
+                        <div class="share-group">
+                            <span class="title">分享至：</span>
+                            <a href="" class="weixin"></a>
+                            <a href="" class="weibo"></a>
+                        </div>
+                        <div class="buy-group">
+                            <!-- <span class="price">49元</span>
+                             <a href="" class="buy-btn">立即购买</a>  -->
+                            <span class="free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-group">
+                    <span id="video-info" data-video-url="{{ course.video_url }}"
+                          data-cover-url="{{ course.cover_url }}" hidden></span>
+                    <div id="playercontainer"></div>
+                </div>
+            </div>
+            <div class="bottom-wrapper">
+                <div class="course-detail-wrapper">
+                    <div class="item-group">
+                        <p class="item-title">人物</p>
+                        <div class="teacher-group">
+                            <div class="avatar-group">
+                                <img src="{{ course.teacher.avatar }}" alt="">
+                            </div>
+                            <div class="author-info">
+                                <p class="teacher-name">{{ course.teacher.username }}</p>
+                                <p class="teacher-desc">
+                                    {{ course.teacher.jobtitle }}
+                                </p>
+                            </div>
+                        </div>
+                        <p class="item-title">简介</p>
+                        <p class="item-content">
+                            {{ course.profile|safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

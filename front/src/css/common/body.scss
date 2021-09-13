@@ -1,0 +1,165 @@
+@import "../common/constants";
+
+body {
+  background-color: #F2F2F2;
+}
+
+.main {
+  width: 100%;
+  margin-top: $navHeight + 20px;
+
+  .wrapper {
+    width: $pageWidth;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .main-content-wrapper {
+      float: left;
+      width: $mainBoxWidth;
+    }
+  }
+}
+
+.main {
+  .wrapper {
+    .side-wrapper {
+      float: right;
+      width: $sideBoxWidth;
+      height: 650px;
+      background-color: #ffffff;
+
+      .title-group {
+        padding: 20px;
+        overflow: hidden;
+        //background-color: pink;
+        border-bottom: 1px solid #eeeeee;
+        box-sizing: border-box;
+        .title {
+          float: left;
+          font-size: 18px;
+          color: #212121;
+        }
+
+        .more {
+          float: right;
+          font-size: 14px;
+          color: $themeColor;
+        }
+      }
+
+      .advertise-group {
+        img {
+          width: 100%;
+        }
+      }
+
+      .focus-group {
+        padding: 0 20px;
+        overflow: hidden;
+
+        .left-group {
+          float: left;
+          width: 180px;
+
+          li {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px;
+
+            .iconfont {
+              margin-right: 8px;
+            }
+
+            a {
+              color: #878787;
+
+              &:hover {
+                color: $themeColor;
+              }
+            }
+          }
+        }
+        .right-group {
+          float: right;
+          width: 110px;
+          //margin-left: 10px;
+          background: url("http://cdn.shiqianlong.top/gzh.jpg");
+          background-size: 100%;
+          background-repeat: no-repeat;
+          //padding-right: 10px;
+
+          .desc {
+            margin-top: 110px;
+            color: #878787;
+            font-size: 12px;
+            margin-left: 8px;
+          }
+        }
+      }
+
+      .hot-news-group {
+        background-color: #ffffff;
+        .hot-list-group {
+          li {
+            // 上0，左右20px，底部20px
+            padding: 0 20px 20px;
+            overflow: hidden;
+            border-bottom: 1px solid $lineColor;
+
+            .left-group {
+              float: left;
+              width: 204px;
+              height: 72px;
+              position: relative;
+
+              .title {
+                font-size: 16px;
+              }
+
+              a {
+                color: $mainFontColor;
+
+                &:hover {
+                  color: $themeColor;
+                }
+              }
+
+              .more {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                .category {
+                  float: left;
+                  font-size: 14px;
+                  color: $themeColor;
+
+                }
+
+                .pub-time {
+                  float: right;
+                  font-size: 14px;
+                  color: $assistFontColor;
+                }
+              }
+
+            }
+
+            .right-group {
+              float: right;
+              width: 102px;
+              height: 72px;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

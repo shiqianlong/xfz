@@ -1,0 +1,131 @@
+@import "../common/init";
+@import "../common/constants";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+
+body {
+  background-color: #F2F2F2;
+}
+
+.main {
+  width: 100%;
+  margin-top: $navHeight;
+
+  .course-nav {
+    width: 100%;
+    height: 54px;
+    // 设置底部阴影
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+
+    .nav-container {
+      width: $pageWidth;
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      line-height: 58px;
+
+      h3.title {
+        float: left;
+        color: #696969;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .nav-list {
+        float: left;
+        margin-left: 100px;
+
+        li {
+          float: left;
+          margin-right: 50px;
+          font-size: 15px;
+
+          a {
+            color: #888;
+          }
+
+          &.active {
+            a {
+              color: $mainFontColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    width: $pageWidth;
+    margin: 20px auto;
+    overflow: hidden;
+
+    .course-list {
+      // 设置布局为flex
+      display: flex;
+      // 按照行排列
+      flex-direction: row;
+      // 排不下的放到下一行
+      flex-wrap: wrap;
+      // 按照两边对齐，中间自动调节间距
+      justify-content: space-between;
+
+      li {
+        margin-bottom: 20px;
+        float: left;
+        $courseItemHeight: 280px;
+        $thumbnailHeight: 158px;
+        $courseInfoHeight: $courseItemHeight -$thumbnailHeight;
+        width: 278px;
+        height: $courseItemHeight;
+        background: #ffffff;
+        .thumbnail-group {
+          width: 100%;
+          height: $thumbnailHeight;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .course-info {
+          padding: 16px;
+          width: 100%;
+          box-sizing: border-box;
+          height: $courseItemHeight -$thumbnailHeight;
+          position: relative;
+
+          .title {
+            // 本生就在a标签里面
+            color: $mainFontColor;
+          }
+
+          .author {
+            margin-top: 10px;
+            color: $assistFontColor;
+            font-size: 14px;
+          }
+
+          .price-group {
+            position: absolute;
+            left: 0;
+            right: 20px;
+            text-align: right;
+            margin-top: 20px;
+
+            .free {
+              color: rgb(126, 211, 33);
+            }
+          }
+        }
+
+        &:hover{
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
+

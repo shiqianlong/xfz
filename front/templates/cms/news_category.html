@@ -1,0 +1,48 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}
+    文章分类
+{% endblock %}
+
+{% block head %}
+    <script src="{% static 'js/news_category.min.js' %}"></script>
+{% endblock %}
+
+{% block content-header %}
+    <h1>文章分类</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <button class="btn btn-primary pull-right" id="add-btn">添加标签</button>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <td>分类名称</td>
+                            <td>文章数量</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for category in categories %}
+                            <tr data-pk="{{ category.pk }}" data-name="{{ category.name }}">
+                                <td>{{ category.name }}</td>
+                                <td>20</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm edit-btn">编辑</button>
+                                    <button class="btn btn-danger btn-sm delete-btn">删除</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

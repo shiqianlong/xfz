@@ -1,0 +1,241 @@
+@import "../common/init";
+@import "../common/constants";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+
+body {
+  background-color: #F2F2F2;
+}
+
+
+.main {
+  width: 100%;
+  margin-top: $navHeight+20px;
+
+  .wrapper {
+    width: $pageWidth;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .main-content-wrapper {
+      float: left;
+      width: $mainBoxWidth;
+      //height: 500px;
+      //background-color: #ffffff;
+
+      .banner-group {
+        $bannerWidth: $mainBoxWidth;
+        $bannerHeight: 400px;
+        width: 100%;
+        height: $bannerHeight;
+        background-color: #ffffff;
+        // 相对定位，可以进行位置的偏移，默认情况下是static静态定位
+        position: relative;
+        overflow: hidden;
+
+        .banner-ul {
+          overflow: hidden;
+          width: $bannerWidth*4;
+          height: $bannerHeight;
+          // 绝对定位，默认值以非静态定位为依据
+          position: absolute;
+          z-index: 0;
+
+          li {
+            float: left;
+            width: $bannerWidth;
+            height: $bannerHeight;
+
+            img {
+              width: $bannerWidth;
+              height: $bannerHeight;
+            }
+          }
+        }
+
+        .arrow {
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 70px;
+          color: #ffffff;
+          position: absolute;
+          // 变成小手
+          cursor: pointer;
+          // 默认情况
+          //display: none;
+          display: block;
+        }
+
+        .left-arrow {
+          left: 20px;
+          top: 50%;
+          margin-top: -45px;
+        }
+
+        .right-arrow {
+          top: 50%;
+          margin-top: -45px;
+          right: 20px;
+        }
+
+        .page-control-group {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 15px;
+
+          .page-control {
+            margin: 0 auto;
+            width: 12*4px+16*4px;
+            overflow: hidden;
+
+            li {
+              float: left;
+              width: 12px;
+              height: 12px;
+              border: 1px solid #ffffff;
+              // 弧度，50%圆形
+              border-radius: 50%;
+              //margin-bottom: 20px;
+              // 上下为0，左右为8px
+              margin: 0 8px;
+              // 边框内嵌到盒子里面，就是宽度等于元素本身的宽度
+              box-sizing: border-box;
+              cursor: pointer;
+
+              &.active {
+                background: white;
+              }
+            }
+          }
+        }
+      }
+
+      .list-outer-group {
+        background: #ffffff;
+        margin-top: 6px;
+
+        .list-tab {
+          width: 100%;
+          height: 66px;
+          overflow: hidden;
+          border: 2px solid #eeeeee;
+          //box-sizing: border-box;
+          border-left: none;
+          border-right: none;
+
+          li {
+            float: left;
+            padding: 0 10px;
+            //line-height: 66px;
+            margin-top: 20px;
+
+            a {
+              color: #878787;
+
+            }
+
+            &:first-of-type {
+              border-left: 5px solid #5c87d9;
+            }
+
+            &.active {
+              a {
+                color: #212121;
+              }
+            }
+          }
+        }
+      }
+
+      .list-inner-group {
+        background-color: white;
+        li {
+          border-bottom: 1px solid #eeeeee;
+          // 内边距
+          padding: 20px;
+          overflow: hidden;
+
+          .thumbnail-group {
+            float: left;
+            width: 226px;
+            height: 162px;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .news-group {
+            float: right;
+            width: 504px;
+            height: 162px;
+            position: relative;
+
+            a {
+              color: #212121;
+
+              .title {
+                font-size: 20px;
+              }
+
+              &:hover {
+                color: $themeColor;
+              }
+            }
+
+            .desc {
+              color: #878787;
+              font-size: 14px;
+              margin-top: 10px;
+            }
+
+            .more {
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              font-size: 14px;
+              color: #878787;
+
+              .pub-time {
+                float: right;
+                margin-left: 20px;
+              }
+
+              .author {
+                float: right;
+              }
+
+              .category {
+                color: $themeColor;
+              }
+            }
+          }
+        }
+      }
+
+      .load-more-group {
+        // 内边距，上下为20px，左右为0
+        padding: 20px 0;
+        text-align: center;
+        .load-more {
+          // button是行内元素，如果需要居中，需要在外面的盒子加上
+          // text-aline，是里面所有的行内元素的盒子居中显示
+          width: 402px;
+          height: 40px;
+          background-color: #d2dcea;
+          color: #6d85ac;
+          // 去除bottom外面默认的边框线
+          border: none;
+          // 去除点击后显示的边框
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+

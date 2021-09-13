@@ -1,0 +1,158 @@
+@import "../common/constants";
+
+.footer {
+  //position: relative;
+  //bottom: 0;
+  //left: 0;
+  //right: 0;
+  font-size: 14px;
+  color: #c9c9c9;
+  padding-top: 40px;
+  .top-group {
+    background-color: #555e67;
+    height: 100px;
+    padding-top: 20px;
+    //box-sizing: border-box;
+
+    .top-inner-group {
+      width: $pageWidth;
+      margin: 0 auto;
+      //overflow: hidden;
+      position: relative;
+
+      .logo-box {
+        width: 80px;
+        height: 80px;
+        float: left;
+        background: url("http://cdn.shiqianlong.top/logo.png");
+        // 保证图片不重复
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      .detail-group {
+        float: left;
+        margin-left: 84px;
+        //overflow: hidden;
+
+        .line1 {
+          overflow: hidden;
+          .links {
+            float: left;
+            overflow: hidden;
+            li {
+              float: left;
+              padding: 0 10px;
+              border-right: 1px solid #c9c9c9;
+
+              // 找到第一个li标签，设置其左padding
+              &:first-of-type {
+                padding-left: 0;
+              }
+
+              a {
+                color: #c9c9c9;
+              }
+
+              &:last-of-type {
+                border-right: none;
+              }
+            }
+          }
+
+          .about-us {
+            float: left;
+            margin-left: 30px;
+            overflow: hidden;
+
+            .title {
+              float: left;
+            }
+
+            .social-group {
+              float: left;
+              overflow: hidden;
+              .weixin {
+                float: left;
+                margin-right: 20px;
+                margin-left: 8px;
+                cursor: pointer;
+
+                .wx-qrcode {
+                  width: 204px;
+                  height: 204px;
+                  background: url("http://cdn.shiqianlong.top/gzh.jpg");
+                  background-repeat: no-repeat;
+                  background-size: 100%;
+                  position: absolute;
+                  left: 350px;
+                  right: 0;
+                  top: -210px;
+                  display: none;
+                }
+
+                &:hover .wx-qrcode {
+                  display: block;
+                }
+              }
+
+              .qq {
+                float: left;
+                cursor: pointer;
+
+                .qq-qrcode{
+                  width: 204px;
+                  height: 204px;
+                  background: url("http://cdn.shiqianlong.top/gzh.jpg");
+                  background-repeat: no-repeat;
+                  background-size: 100%;
+                  position: absolute;
+                  left: 450px;
+                  right: 0;
+                  top: -210px;
+                  display: none;
+                }
+
+                &:hover .qq-qrcode{
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+
+        .line2 {
+          overflow: hidden;
+          .duty {
+            float: left;
+            margin-top: 8px;
+            font-size: 13px;
+          }
+        }
+
+        .line3 {
+          overflow: hidden;
+          .contact {
+            float: left;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-group {
+    background-color: #383e44;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
+
+    .info {
+      height: 100%;
+      width: 100%;
+      float: left;
+      text-align: center;
+      line-height: 60px;
+    }
+  }
+}

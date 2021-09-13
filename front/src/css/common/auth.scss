@@ -1,0 +1,169 @@
+@import "constants";
+@import "init";
+
+body {
+  background: pink;
+}
+
+.mask-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  // 如果有多余的元素，那么就让他滚动
+  //overflow: scroll;
+  // 只控制在纵轴方向的滚动
+  overflow-y: scroll;
+  display: none;
+  z-index: 100;
+
+  .auth-wrapper {
+    $authWrapperHeight: 600px;
+    $authWrapperWidth: 400px;
+    width: $authWrapperWidth;
+    height: $authWrapperHeight;
+    //background: #ffffff;
+    //margin: 40px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$authWrapperHeight/2;
+    margin-left: -$authWrapperWidth/2;
+
+    .close-wrapper {
+      width: 100%;
+      height: 40px;
+      background: #ffffff;
+
+      .close-btn {
+        width: 30px;
+        height: 30px;
+        float: right;
+        margin-top: 8px;
+        // span默认是行类元素，设置为行类块元素
+        display: inline-block;
+        color: $assistFontColor;
+        cursor: pointer;
+      }
+    }
+
+    .auth-inner-wrapper {
+      width: 100%;
+      height: $authWrapperHeight - 40px;
+      //background: #5c87d9;
+      position: relative;
+      overflow: hidden;
+
+      .scroll-group {
+        width: $authWrapperWidth * 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .auth-group {
+          width: $authWrapperWidth;
+          padding: 10px 20px;
+          box-sizing: border-box;
+
+          .top-group {
+            width: 100%;
+            height: 36px;
+            border-bottom: 1px solid $lineColor;
+            line-height: 34px;
+
+            .title {
+              float: left;
+              color: $mainFontColor;
+              border-bottom: 3px solid $themeColor;
+              // 设置行高
+              //line-height: 34px;
+            }
+
+            .switch {
+              float: right;
+              color: $themeColor;
+            }
+          }
+
+          .form-group {
+            margin-top: 20px;
+
+            .input-group {
+              height: 40px;
+              margin-top: 20px;
+
+              .short-input-group {
+                width: 250px;
+                float: left;
+                height: 100%;
+              }
+
+              .input-group-addon {
+                float: right;
+                width: 100px;
+                //height: 100%;
+                //background: pink;
+                cursor: pointer;
+
+                .sms_captcha {
+                  border: 1px solid $themeColor;
+                  height: 100%;
+                  width: 100%;
+                  box-sizing: border-box;
+                  line-height: 40px;
+                  text-align: center;
+                  background: #fff;
+                  color: $themeColor;
+                  // span标签在设置样式是需要转化成行类块元素
+                  display: inline-block;
+                  cursor: pointer;
+                }
+
+                .disabled {
+                  color: #ccc;
+                  border-color: #ccc;
+                  pointer-events: none;
+                }
+              }
+
+              .remember-label {
+                font-size: 14px;
+              }
+
+              .submit-btn {
+                width: 100%;
+                height: 40px;
+                background: #5c87d9;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+              }
+
+              .form-control {
+                height: 100%;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                outline: none;
+              }
+            }
+          }
+        }
+
+        .signin-group {
+          float: left;
+          background: #fff;
+
+        }
+
+        .signup-group {
+          float: left;
+          background: #fff;
+        }
+      }
+    }
+  }
+}
